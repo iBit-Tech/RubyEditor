@@ -12,7 +12,7 @@ public class RubyDocumentProvider extends FileDocumentProvider {
 		IDocument document = super.createDocument(element);
 		if (document != null) {
 			IDocumentPartitioner partitioner = new FastPartitioner(new RubyPartitionScanner(), new String[]{
-				RubyPartitionScanner.XML_COMMENT });
+				RubyPartitionScanner.RUBY_COMMENT });
 			partitioner.connect(document);
 			document.setDocumentPartitioner(partitioner);
 		}

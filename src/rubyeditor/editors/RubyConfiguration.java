@@ -22,7 +22,7 @@ public class RubyConfiguration extends SourceViewerConfiguration {
 	public String[] getConfiguredContentTypes(ISourceViewer sourceViewer) {
 		return new String[] {
 			IDocument.DEFAULT_CONTENT_TYPE,
-			RubyPartitionScanner.XML_COMMENT};
+			RubyPartitionScanner.RUBY_COMMENT};
 	}
 	public ITextDoubleClickStrategy getDoubleClickStrategy(
 		ISourceViewer sourceViewer,
@@ -45,10 +45,7 @@ public class RubyConfiguration extends SourceViewerConfiguration {
 	protected RubyStringScanner getXMLTagScanner() {
 		if (tagScanner == null) {
 			tagScanner = new RubyStringScanner(colorManager);
-			tagScanner.setDefaultReturnToken(
-				new Token(
-					new TextAttribute(
-						colorManager.getColor(IXMLColorConstants.TAG))));
+			tagScanner.setDefaultReturnToken(new Token(new TextAttribute(colorManager.getColor(IXMLColorConstants.DEFAULT))));
 		}
 		return tagScanner;
 	}
@@ -66,8 +63,8 @@ public class RubyConfiguration extends SourceViewerConfiguration {
 			new NonRuleBasedDamagerRepairer(
 				new TextAttribute(
 					colorManager.getColor(IXMLColorConstants.RUBY_COMMENT)));
-		reconciler.setDamager(ndr, RubyPartitionScanner.XML_COMMENT);
-		reconciler.setRepairer(ndr, RubyPartitionScanner.XML_COMMENT);
+		reconciler.setDamager(ndr, RubyPartitionScanner.RUBY_COMMENT);
+		reconciler.setRepairer(ndr, RubyPartitionScanner.RUBY_COMMENT);
 
 		return reconciler;
 	}

@@ -3,11 +3,11 @@ package rubyeditor.editors;
 import org.eclipse.jface.text.rules.*;
 
 public class RubyPartitionScanner extends RuleBasedPartitionScanner {
-	public final static String XML_COMMENT = "__xml_comment";
+	public final static String RUBY_COMMENT = "__ruby_comment";
 
 	public RubyPartitionScanner() {
 
-		IToken rubyComment = new Token(XML_COMMENT);
+		IToken rubyComment = new Token(RUBY_COMMENT);
 
 		IPredicateRule[] rules = new IPredicateRule[1];
 
