@@ -5,12 +5,12 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            name="Sample XML Editor"
-            extensions="xml"
-            icon="icons/sample.gif"
+            name="Ruby Editor"
+            extensions="rb"
+            icon="icons/ruby.gif"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-            class="rubyeditor.editors.XMLEditor"
-            id="rubyeditor.editors.XMLEditor">
+            class="rubyeditor.editors.RubyEditor"
+            id="rubyeditor.editors.RubyEditor">
       </editor>
    </extension>
 

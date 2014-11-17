@@ -20,25 +20,18 @@ public class RubyConfiguration extends SourceViewerConfiguration {
 		this.colorManager = colorManager;
 	}
 	public String[] getConfiguredContentTypes(ISourceViewer sourceViewer) {
-		return new String[] {
-			IDocument.DEFAULT_CONTENT_TYPE,
-			RubyPartitionScanner.RUBY_COMMENT};
+		return new String[] { IDocument.DEFAULT_CONTENT_TYPE, RubyPartitionScanner.RUBY_COMMENT};
 	}
-	public ITextDoubleClickStrategy getDoubleClickStrategy(
-		ISourceViewer sourceViewer,
-		String contentType) {
+	public ITextDoubleClickStrategy getDoubleClickStrategy(ISourceViewer sourceViewer, String contentType) {
 		if (doubleClickStrategy == null)
 			doubleClickStrategy = new RubyDoubleClickStrategy();
 		return doubleClickStrategy;
 	}
 
-	protected RubyScanner getXMLScanner() {
+	protected RubyScanner getRubyScanner() {
 		if (scanner == null) {
 			scanner = new RubyScanner(colorManager);
-			scanner.setDefaultReturnToken(
-				new Token(
-					new TextAttribute(
-						colorManager.getColor(IRubyColorConstants.DEFAULT))));
+			scanner.setDefaultReturnToken(new Token(new TextAttribute(colorManager.getColor(IRubyColorConstants.DEFAULT))));
 		}
 		return scanner;
 	}
@@ -55,14 +48,11 @@ public class RubyConfiguration extends SourceViewerConfiguration {
 
 		DefaultDamagerRepairer dr = new DefaultDamagerRepairer(getXMLTagScanner());
 
-		dr = new DefaultDamagerRepairer(getXMLScanner());
+		dr = new DefaultDamagerRepairer(getRubyScanner());
 		reconciler.setDamager(dr, IDocument.DEFAULT_CONTENT_TYPE);
 		reconciler.setRepairer(dr, IDocument.DEFAULT_CONTENT_TYPE);
 
-		NonRuleBasedDamagerRepairer ndr =
-			new NonRuleBasedDamagerRepairer(
-				new TextAttribute(
-					colorManager.getColor(IRubyColorConstants.RUBY_COMMENT)));
+		NonRuleBasedDamagerRepairer ndr = new NonRuleBasedDamagerRepairer(new TextAttribute(colorManager.getColor(IRubyColorConstants.RUBY_COMMENT)));
 		reconciler.setDamager(ndr, RubyPartitionScanner.RUBY_COMMENT);
 		reconciler.setRepairer(ndr, RubyPartitionScanner.RUBY_COMMENT);
 
