@@ -2,16 +2,17 @@ package rubyeditor.editors;
 
 import org.eclipse.ui.editors.text.TextEditor;
 
-public class XMLEditor extends TextEditor {
+public class RubyEditor extends TextEditor {
 
 	private ColorManager colorManager;
 
-	public XMLEditor() {
+	public RubyEditor() {
 		super();
 		colorManager = new ColorManager();
-		setSourceViewerConfiguration(new XMLConfiguration(colorManager));
-		setDocumentProvider(new XMLDocumentProvider());
+		setSourceViewerConfiguration(new RubyConfiguration(colorManager));
+		setDocumentProvider(new RubyDocumentProvider());
 	}
+	
 	public void dispose() {
 		colorManager.dispose();
 		super.dispose();

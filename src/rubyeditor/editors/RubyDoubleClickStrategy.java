@@ -2,7 +2,7 @@ package rubyeditor.editors;
 
 import org.eclipse.jface.text.*;
 
-public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
+public class RubyDoubleClickStrategy implements ITextDoubleClickStrategy {
 	protected ITextViewer fText;
 
 	public void doubleClicked(ITextViewer part) {
@@ -60,7 +60,7 @@ public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
 			int len = endPos - offset;
 			fText.setSelectedRange(offset, len);
 			return true;
-		} catch (BadLocationException x) {
+		} catch (BadLocationException e) {
 		}
 
 		return false;
@@ -98,7 +98,7 @@ public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
 			selectRange(startPos, endPos);
 			return true;
 
-		} catch (BadLocationException x) {
+		} catch (BadLocationException e) {
 		}
 
 		return false;
