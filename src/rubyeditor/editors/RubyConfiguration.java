@@ -38,14 +38,14 @@ public class RubyConfiguration extends SourceViewerConfiguration {
 			scanner.setDefaultReturnToken(
 				new Token(
 					new TextAttribute(
-						colorManager.getColor(IXMLColorConstants.DEFAULT))));
+						colorManager.getColor(IRubyColorConstants.DEFAULT))));
 		}
 		return scanner;
 	}
 	protected RubyStringScanner getXMLTagScanner() {
 		if (tagScanner == null) {
 			tagScanner = new RubyStringScanner(colorManager);
-			tagScanner.setDefaultReturnToken(new Token(new TextAttribute(colorManager.getColor(IXMLColorConstants.DEFAULT))));
+			tagScanner.setDefaultReturnToken(new Token(new TextAttribute(colorManager.getColor(IRubyColorConstants.DEFAULT))));
 		}
 		return tagScanner;
 	}
@@ -62,7 +62,7 @@ public class RubyConfiguration extends SourceViewerConfiguration {
 		NonRuleBasedDamagerRepairer ndr =
 			new NonRuleBasedDamagerRepairer(
 				new TextAttribute(
-					colorManager.getColor(IXMLColorConstants.RUBY_COMMENT)));
+					colorManager.getColor(IRubyColorConstants.RUBY_COMMENT)));
 		reconciler.setDamager(ndr, RubyPartitionScanner.RUBY_COMMENT);
 		reconciler.setRepairer(ndr, RubyPartitionScanner.RUBY_COMMENT);
 

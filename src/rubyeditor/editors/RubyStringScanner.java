@@ -6,7 +6,7 @@ import org.eclipse.jface.text.rules.*;
 public class RubyStringScanner extends RuleBasedScanner {
 
 	public RubyStringScanner(ColorManager manager) {
-		IToken string = new Token(new TextAttribute(manager.getColor(IXMLColorConstants.STRING)));
+		IToken string = new Token(new TextAttribute(manager.getColor(IRubyColorConstants.STRING)));
 
 		IRule[] rules = new IRule[3];
 
